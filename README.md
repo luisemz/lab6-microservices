@@ -1,35 +1,19 @@
-# Web Engineering 2015-2016 / Microservices
-Please, go to the [Wiki](https://github.com/UNIZAR-30246-WebEngineering/lab6-microservices/wiki) in order to get the instructions for this assignment.
+#**1. The two microservices are running and registered**
+## Account Microservice
+![Account Microservice in browser](images/account_service_browser.png)
+![Account Microservice in terminal](images/account_service_terminal.png)
 
-NIA    | User name | Repo | Improvement | Score
--------|-----------|------|-------------|--------
-647002 | AGUILAR REQUENA, EDUARDO 
-666156 | BAREA LÓPEZ, DANIEL 
-666179 | BARRIOS GIL, ÁLVARO 
-612595 | BELTRÁN PIÑOL, VÍCTOR 
-683326 | BINTANED BASA, JESÚS 
-649003 | CAUDEVILLA CASAUS, JOSE ÁNGEL
-750846 | DAVID MOLINA, JOHN ALEXIS 
-529361 | DUMITRACHE , CATALIN  CONSTANTIN 
-535621 | FRÍAS ZAPATER, MARTA ALMUDENA
-680669 | GUIU PÉREZ, ALEJANDRO 
-682531 | JUAN CIRIACO, ÁLVARO 
-544393 | LAHOZ EGEA, CRISTINA 
-622612 | MARTIN SEGURA, SERGIO  
-681061 | MARTÍNEZ MENÉNDEZ, ALBERTO 
-576307 | MARTÍNEZ PÉREZ, ADRIAN 
-540891 | MENENDEZ MOYA, FRANCISCO 
-680882 | MORENO JIMENO, RUBÉN 
-750849 | MOSQUERA ZAPATA, LUIS EDUARDO 
-650448 | MURILLO MAGDALENA, JAVIER 
-453948 | NAVARRO CLARAS, MARIO 
-647973 | PERALTA MARTÍNEZ, SANTIAGO 
-683546 | PÉREZ CANCER, BEATRIZ 
-686329 | ROIG JIMENEZ, ANA
-559207 | RUEDA MACÍAS, DANIEL 
-610344 | SALUEÑA SEDILES, ASIER 
-680182 | SANZ ALCAINE, JORGE 
-534521 | SANZ VIDAL, AITOR 
-618051 | TOLON MARTÍN, CARLOS JAVIER 
-643821 | VELA GARCÍA, JUAN 
-679609 | VIÑUALES SÁNCHEZ, PABLO 
+## WebService Microservice
+![Account Microservice in browser](images/webservice_service_browser.png)
+![Account Microservice in terminal](images/webservice_service_terminal.png)
+
+#**2. The service registration service has the two microservices registered**
+![Account Microservice in terminal](images/two_services_registry.png)
+
+#**3. A second account microservice is running in the port 4444 and it is registered**
+![Account Microservice in terminal](images/account_service_terminal_4444.png)
+
+![Account Microservice in browser](images/three_services_registry.png)
+
+#**4. A brief report describing what happens when you kill the microservice with port 2222**
+When you kill the Account Microservice with port 2222, the WebService Microservice on port 3333 tries to communicate with the killed one. Then it received a "Refused Connection" because of the Account MicroService on port 2222 has been killed. Next, it communicates with the Registration Service on port 1111 to request a microservice that provides the Account service. It receives a response to reports that the new Account Microservice is on port 4444, and finally it starts working again.
